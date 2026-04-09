@@ -19,6 +19,14 @@ Replace this paragraph with your own summary of what your version does.
 
 Explain your design in plain language.
 
+The `Recommender` system should store a list of songs, then use a Gaussian scoring function to compute one score per feature, then weighted average those scores to get a final score for each song. Each feature should have weight, for example, genre should have more weight than mood because genre is more specific to an user's taste.
+
+Each `Song` should use the features energy, tempo_bpm, valence, danceability, acousticness, genre, and mood.
+
+`UserProfile` should store the user's favorite genre, favorite mood, target energy, and if they like acoustic music.
+
+The songs with the highest scores are recommended to the user. I want for the user to be able to specify how many songs they want to be recommended.
+
 Some prompts to answer:
 
 - What features does each `Song` use in your system
