@@ -8,13 +8,20 @@ This is a simple music recommender for learning. It suggests songs from a small 
 
 ## How The System Works
 
-The `Recommender` system should store a list of songs, then use a Gaussian scoring function to compute one score per feature, then weighted average those scores to get a final score for each song. Each feature should have weight, for example, genre should have more weight than mood because genre is more specific to an user's taste.
+This recommender scores each song with simple, rule-based points and then returns the top results. There is no Gaussian weighting or learned model.
 
-Each `Song` should use the features energy, tempo_bpm, valence, danceability, acousticness, genre, and mood.
+Each `Song` uses these features: energy, tempo_bpm, valence, danceability, acousticness, genre, and mood.
 
-`UserProfile` should store the user's favorite genre, favorite mood, target energy, and if they like acoustic music.
+Each user profile provides a favorite genre and mood, plus target values for numeric features like energy, tempo, valence, danceability, and acousticness. Favorite artist is optional, and any missing targets are simply skipped.
 
-The songs with the highest scores are recommended to the user. I want for the user to be able to specify how many songs they want to be recommended.
+The score adds:
+- +2 for genre match
+- +1 for mood match
+- +1 for artist match (if provided)
+- +1 each when tempo, danceability, acousticness, or valence are within a threshold
+- an energy similarity bonus of $1 - |energy - target|$
+
+Songs are sorted by score, and the top $k$ are recommended.
 
 ---
 
