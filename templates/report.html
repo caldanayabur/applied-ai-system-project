@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StatBuddy Report</title>
+  <style>
+    body{font-family:Arial,sans-serif;max-width:1100px;margin:0 auto;padding:24px;background:#f8fafc;color:#111827}
+    h1,h2{color:#0f172a} section{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:16px;margin:16px 0}
+    table{width:100%;border-collapse:collapse;margin:12px 0} th,td{border:1px solid #e5e7eb;padding:8px;text-align:left;vertical-align:top}
+    .plot{max-width:100%;margin:12px 0;border:1px solid #e5e7eb;border-radius:8px}
+  </style>
+</head>
+<body>
+  <section>
+    <h1>StatBuddy Report</h1>
+    <p><strong>Dataset:</strong> {{ dataset_name }}</p>
+    <p><strong>Dependent Variable:</strong> {{ dv_name }}</p>
+  </section>
+  <section>
+    <h2>Model Selection</h2>
+    <p><strong>Model:</strong> {{ model_name }}</p>
+    <p>{{ model_justification }}</p>
+  </section>
+  <section>
+    <h2>Descriptive Analysis</h2>
+    {% for name, table in descriptive_tables.items() %}
+      <h3>{{ name }}</h3>
+      {{ table | safe }}
+    {% endfor %}
+    {% for image in figures %}
+      <img class="plot" src="data:image/png;base64,{{ image }}" alt="StatBuddy plot">
+    {% endfor %}
+  </section>
+  <section>
+    <h2>Predictor Table</h2>
+    <table>
+      <tr><th>Predictor</th><th>Justification</th></tr>
+      {% for name, justification in predictors.items() %}
+        <tr><td>{{ name }}</td><td>{{ justification }}</td></tr>
+      {% endfor %}
+    </table>
+  </section>
+  <section>
+    <h2>Model Results</h2>
+    {{ coefficients | safe }}
+    <pre>{{ model_summary }}</pre>
+  </section>
+  <section>
+    <h2>Assumptions Check</h2>
+    <table>
+      {% for name, value in assumptions.items() %}
+        <tr><th>{{ name }}</th><td>{{ value }}</td></tr>
+      {% endfor %}
+    </table>
+  </section>
+</body>
+</html>

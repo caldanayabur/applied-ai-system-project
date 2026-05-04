@@ -1,0 +1,37 @@
+{
+  "binary": {
+    "model": "Logit",
+    "family": "binomial",
+    "justification": "Use this when the dependent variable has only two outcomes, such as yes/no or 0/1."
+  },
+  "count": {
+    "model": "Poisson",
+    "family": "poisson",
+    "justification": "Use this for non-negative counts when events are relatively rare and the mean and variance are similar."
+  },
+  "continuous_normal": {
+    "model": "OLS",
+    "family": "gaussian",
+    "justification": "Use this when the dependent variable is continuous and roughly symmetric."
+  },
+  "continuous_skewed": {
+    "model": "OLS",
+    "family": "gaussian",
+    "justification": "Use this when the dependent variable is continuous but skewed; OLS is a practical starting point."
+  },
+  "censored": {
+    "model": "Tobit",
+    "family": null,
+    "justification": "Use this when the dependent variable is censored at a lower or upper bound."
+  },
+  "panel": {
+    "model": null,
+    "family": null,
+    "justification": "Panel data is not yet supported in this StatBuddy scaffold."
+  },
+  "survival": {
+    "model": null,
+    "family": null,
+    "justification": "Survival analysis is not yet supported in this StatBuddy scaffold."
+  }
+}

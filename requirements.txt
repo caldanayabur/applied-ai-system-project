@@ -1,3 +1,10 @@
-pandas
-pytest
 streamlit
+pandas
+numpy
+scipy
+statsmodels
+matplotlib
+seaborn
+jinja2
+github-copilot-sdk
+pytest
