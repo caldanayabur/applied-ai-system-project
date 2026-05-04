@@ -43,18 +43,26 @@ StatBuddy does not yet support panel data, survival models, or time-series workf
 - github-copilot-sdk
 - pytest
 
-I tested the recommender using three different user profiles: one with impossible preferences (genre and mood not in the dataset, extreme energy), one with contradictory preferences (high acousticness, high energy, high danceability), and one with realistic but specific preferences (jazz, relaxed mood, high valence, moderate tempo, likes acoustic). For each profile, I checked if the top recommendations matched the user's stated preferences and if the explanations made sense. I also experimented with changing the genre weight, adding tempo and valence to the score, and disabling the mood check to see how the results changed. I was surprised that users with extreme or rare preferences always got low scores and generic recommendations, while users with more typical preferences got clear, relevant results. The experiments helped reveal where the model is strong and where it fails to adapt to unusual user needs.
+## 7. Responsible AI Reflection
 
----
+### What are the limitations or biases in your system?
 
-## 8. Future Work  
+I think the most tedious aspect of data science is data cleaning and preprocessing. Automating that process is very difficult because not all dataset are the same and human judgment is often required to make decisions about how to handle missing values, outliers, and other data quality issues. My system is just meant to help the user when the data is already in a reasonable state.
 
+### Could your AI be misused, and how would you prevent that?
 
-If I extended this project, I would swap out all the songs in the dataset for tracks from my own music library. This would let me test the recommender with my real preferences and see if it can actually give good suggestions. I would also look for ways to add more features, handle more complex or specific user tastes, and improve the diversity of recommendations so users don’t always get the same types of songs.
+I think the only way it can be misused is if someone relied on it entirely. Statistical analysis requires domain knowledge and critical thinking. If you ask the AI to tell you exactly which predictors you need to include in your model, it will give you all of them most of the time as it will find a way to make everything more meaningful than it is. The user must always use their own judgment and domain expertise to validate the AI's suggestions.
 
----
+### What surprised you while testing your AI's reliability?
 
-## 9. Personal Reflection  
+How bad it is. The first time I tried it, the descriptive analysis was backward. It was running histograms for independent variables instead of the dependent variable. It got very few predictors for the model. Overall, I think it is not enough for an LLM model to handle statistics without enough context.
 
+### Collaboration with AI
 
-Building this recommender showed me how complex real music apps like Spotify must be, since they serve millions of users and use far more features than my simple system. I learned it’s hard to recommend music to people with very specific tastes. For example, users with extreme preferences only got low-scoring, generic results, which made the system feel unhelpful for them. I also realized how much human judgment still matters, because the model can only use the features it has and might miss what really makes a song enjoyable for someone. I was surprised that even a simple scoring system could still feel somewhat personalized. I also found it important to double-check the changes suggested by AI tools, to make sure the code still made sense.
+**One instance when AI gave a helpful suggestion:**
+
+After the first try, the AI suggested I redesign the report structure.
+
+**One instance where AI's suggestion was flawed or incorrect:**
+
+When I tried to make a prompt to fix what it wasn't working, it gave me a prompt for the StatBuddy persona.
