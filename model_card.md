@@ -55,7 +55,7 @@ I think the only way it can be misused is if someone relied on it entirely. Stat
 
 ### What surprised you while testing your AI's reliability?
 
-How bad it is. The first time I tried it, the descriptive analysis was backward. It was running histograms for independent variables instead of the dependent variable. It got very few predictors for the model. Overall, I think it is not enough for an LLM model to handle statistics without enough context.
+How bad it is. The descriptive analysis is backward. It is running histograms for independent variables instead of the dependent variable. It got very few predictors for the model. Overall, I think it is not enough for an LLM model to handle statistics without enough context.
 
 ### Collaboration with AI
 
@@ -65,4 +65,4 @@ After the first try, the AI suggested I redesign the report structure, also that
 
 **One instance where AI's suggestion was flawed or incorrect:**
 
-When I tried to make a prompt to fix what it wasn't working, it gave me a prompt for the StatBuddy persona.
+I did refactor the code based on the AI's suggestion, but it ended up breaking the existing functionality, so I had to returned it to how it was.
