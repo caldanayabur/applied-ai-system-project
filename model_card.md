@@ -47,7 +47,7 @@ StatBuddy does not yet support panel data, survival models, or time-series workf
 
 ### What are the limitations or biases in your system?
 
-I think the most tedious aspect of data science is data cleaning and preprocessing. Automating that process is very difficult because not all dataset are the same and human judgment is often required to make decisions about how to handle missing values, outliers, and other data quality issues. My system is just meant to help the user when the data is already in a reasonable state.
+I think the most tedious aspect of data science is data cleaning and preprocessing. Automating that process is very difficult because not all datasets are the same and human judgment is often required to make decisions about how to handle missing values, outliers, and other data quality issues. My system is just meant to help the user when the data is already in a reasonable state.
 
 ### Could your AI be misused, and how would you prevent that?
 
@@ -61,7 +61,7 @@ How bad it is. The first time I tried it, the descriptive analysis was backward.
 
 **One instance when AI gave a helpful suggestion:**
 
-After the first try, the AI suggested I redesign the report structure.
+After the first try, the AI suggested I redesign the report structure, also that I need to improve the domain knowledge and make some changes about the logic.
 
 **One instance where AI's suggestion was flawed or incorrect:**
 

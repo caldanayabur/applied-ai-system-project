@@ -22,7 +22,13 @@ class _FallbackResult:
 class ModelBuilder:
     """Build and fit a regression model for the selected statistical family."""
 
-    def __init__(self, df: pd.DataFrame | None = None, model_type: str = "OLS", predictors: list[str] | None = None, dv_name: str = "") -> None:
+    def __init__(
+        self,
+        df: pd.DataFrame | None = None,
+        model_type: str = "OLS",
+        predictors: list[str] | None = None,
+        dv_name: str = "",
+    ) -> None:
         self.formula = ""
         self.model_type = model_type
         self.df = df if df is not None else pd.DataFrame()

@@ -1,16 +1,30 @@
-# Difference‑in‑Differences (DID)
+# Difference-in-Differences (DID)
 
-## Purpose
-Estimate causal effects using policy shocks.
+## Model Eligibility Checklist
+- Use only if there is a pre/post structure.
+- Use only if a treatment group and a control group are both available.
+- Use only if treatment timing is known.
+- Use only if pre-treatment outcomes are observed.
 
-## Key Assumption
-- Parallel trends between treatment and control groups
+## Disqualifying Conditions
+- Reject DID if no pre-treatment data exist.
+- Reject DID if no untreated comparison group exists.
+- Reject DID if the treatment date is unknown.
+- Reject DID if the control group is contaminated by treatment.
 
-## Model Form
-Y = β0 + β1Treat + β2Post + β3(Treat×Post) + ε
+## Required Diagnostics
+- Assess parallel trends before treatment.
+- Inspect pre-period outcomes by group.
+- Check whether group-level shocks are plausibly time-invariant.
 
-## Interpretation
-- β3 is the causal effect
+## Diagnostic → Action Rules
+- If pre-treatment trends are approximately parallel, DID is eligible.
+- If pre-treatment trends diverge materially, stop and reject DID.
+- If no pre-treatment data exist, stop and reject DID.
+- If the treatment effect is heterogeneous across time, require event-study style checks before final output.
+- If the pre/post comparison is valid, interpret the interaction term as the treatment effect.
 
-## Risks
-- Violation of parallel trends
+## Output Restrictions
+- Interpretation is limited to the interaction term.
+- Do not claim causal identification when parallel trends fail.
+- Do not present DID without a valid control group.
