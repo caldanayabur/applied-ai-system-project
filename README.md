@@ -1,3 +1,6 @@
+
+https://github.com/user-attachments/assets/6a93a52e-8ff9-4b9b-8a12-7aed609c6f3d
+
 # StatBuddy
 
 ## Original Project Context
